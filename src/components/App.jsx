@@ -4,7 +4,7 @@ import Section from "./Section/Section.jsx";
 import FeedbackOptions from "./FeedbackOptions/FeedbackOptions.jsx";
 import Statistics from "./Statistics/Statistics.jsx";
 
-
+import s from "./App.module.css";
 class App extends Component {
 
   state = {
@@ -28,15 +28,15 @@ class App extends Component {
   countPositiveFeedbackPercentage = () => {
     const total = this.countTotalFeedback();
     const { good } = this.state;
-    return total?+((good / total) * 100).toFixed(0):0;
-  }
+    return total ? +((good / total) * 100).toFixed(0) : 0;
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
     const totalFeedback = this.countTotalFeedback();
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
     return (
-      <div>
+      <div className={s.App}>
         <Section
           title='Please leave feedback'>
           <FeedbackOptions
